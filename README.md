@@ -197,6 +197,18 @@ Blocks supports more than one level of inheritance and may be redefined.
 
 ## Client-side support
 
+### Compiling within Webpack
+
+On your js file, require the template using [ect-loader](https://github.com/cusspvz/ect-loader)
+```js
+var body_template = require( 'ect-loader!./path/to/your/body_template.ect' )
+
+document.body.innerHtml = body_template( data )
+```
+For further usage info, read more about [ect-loader](https://github.com/cusspvz/ect-loader) and [webpack](https://webpack.github.io/docs/).
+
+### Compiling on Browser
+
 Download and include [coffee-script.js](https://github.com/jashkenas/coffee-script/blob/master/extras/coffee-script.js) and [ect.min.js](https://github.com/baryshev/ect/tree/master/ect.min.js).
 
 ```html
@@ -212,7 +224,7 @@ var data = { title : 'Hello, World!' };
 var html = renderer.render('template.ect', data);
 ```
 
-### With server side compiler middleware
+#### With server side compiler middleware
 
 Download and include [ect.min.js](https://github.com/baryshev/ect/tree/master/ect.min.js). You don't need to include CoffeeScript compiler, because templates are served already compiled by server side compiler middleware.
 
